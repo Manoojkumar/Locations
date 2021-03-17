@@ -192,7 +192,7 @@ extension ViewController: CLLocationManagerDelegate{
                 let errorString = error?.localizedDescription ?? "Unexpected Error"
                 print("Unable to reverse geocode the given location. Error: \(errorString)")
                 //LocationConstant.showToast(message: "Can't get geolocation.Setting Default location")
-                //self.saveSetup(latitude: "\(latitude)", longitude: "\(longitude)", city: nil)
+                self.saveSetup(latitude: "\(latitude)", longitude: "\(longitude)", city: nil)
                 return
             }
             
@@ -202,7 +202,8 @@ extension ViewController: CLLocationManagerDelegate{
             })
         }
     }
-    //
+    
+    
     func saveSetup(latitude: String,longitude: String,city: String?){
         let time = getCurrentDateAndTime()
         guard let appState = self.userDefaults.object(forKey: "appState") as? String else {
@@ -219,7 +220,7 @@ extension ViewController: CLLocationManagerDelegate{
             let lastTime = locationList.last!.time
             let difference = LocationConstant.timeDifferenceFromString(timeA:lastTime!,timeB: time)
             // check last time and new time and difference to 10
-            if difference == 10{
+            if difference == 1{
                 self.saveToCoreData(latitude: "\(latitude)", longitude: "\(longitude)", appState: appState, city: cityName, time: time)
             }
         }else{
