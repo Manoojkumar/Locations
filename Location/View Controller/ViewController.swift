@@ -202,7 +202,7 @@ extension ViewController: CLLocationManagerDelegate{
             })
         }
     }
-    
+    // 
     func saveSetup(latitude: String,longitude: String,city: String?){
         let time = getCurrentDateAndTime()
         guard let appState = self.userDefaults.object(forKey: "appState") as? String else {
@@ -218,6 +218,7 @@ extension ViewController: CLLocationManagerDelegate{
         if locationList.count >= 1{
             let lastTime = locationList.last!.time
             let difference = LocationConstant.timeDifferenceFromString(timeA:lastTime!,timeB: time)
+            // check last time and new time and difference to 10
             if difference == 10{
                 self.saveToCoreData(latitude: "\(latitude)", longitude: "\(longitude)", appState: appState, city: cityName, time: time)
             }
