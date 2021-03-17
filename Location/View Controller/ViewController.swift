@@ -218,7 +218,7 @@ extension ViewController: CLLocationManagerDelegate{
         if locationList.count >= 1{
             let lastTime = locationList.last!.time
             let difference = LocationConstant.timeDifferenceFromString(timeA:lastTime!,timeB: time)
-            if difference == 10cd .{
+            if difference == 10{
                 self.saveToCoreData(latitude: "\(latitude)", longitude: "\(longitude)", appState: appState, city: cityName, time: time)
             }
         }else{
