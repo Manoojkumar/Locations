@@ -23,7 +23,7 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "Locations"
+        self.title = "Travel History"
         self.locationManager.delegate = self
         self.locationManager.requestAlwaysAuthorization()
         self.locationManager.desiredAccuracy = kCLLocationAccuracyBest
@@ -202,7 +202,7 @@ extension ViewController: CLLocationManagerDelegate{
             })
         }
     }
-    // 
+    //
     func saveSetup(latitude: String,longitude: String,city: String?){
         let time = getCurrentDateAndTime()
         guard let appState = self.userDefaults.object(forKey: "appState") as? String else {
